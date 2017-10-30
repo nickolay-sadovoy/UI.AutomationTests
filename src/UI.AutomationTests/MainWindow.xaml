@@ -3,8 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Properties="clr-namespace:UI.AutomationTests.Properties"
+        xmlns:viewmodels="clr-namespace:UI.AutomationTests.ViewModels;assembly=UI.AutomationTests.ViewModels"
         mc:Ignorable="d"
         ResizeMode="CanResize"
+        AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_MainWindow_Id}"
         Title="UI Automation Test Window" Height="350" Width="525">
     <Window.Resources>
         <Style TargetType="TextBox">
@@ -23,7 +26,12 @@
             <Setter Property="Height" Value="24"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+
     </Window.Resources>
+    <Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -39,9 +47,9 @@
 
         <StackPanel Grid.Row="0"
                     Grid.Column="1">
-            <TextBox Name="txtA" />
-            <TextBox Name="txtB" />
-            <TextBox Name="txtC" />
+            <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxA_Id}" Text="{Binding TextA, Mode=TwoWay}"/>
+            <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxB_Id}" Text="{Binding TextB, Mode=TwoWay}"/>
+            <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxC_Id}" Text="{Binding TextC, Mode=TwoWay}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1"
@@ -53,9 +61,9 @@
 
         <StackPanel Grid.Row="1"
                     Grid.Column="1">
-            <Button Name="btnClick"
-                    Content="Click" Click="btnClick_Click"/>
-            <Button Name="btnCancel"
+            <Button AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ButtonClick_Id}"
+                    Content="Click" Command="{Binding CalculateCommand}"/>
+            <Button AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ButtonCancel_Id}"
                     Content="Cancel"/>
         </StackPanel>
     </Grid>
