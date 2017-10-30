@@ -62,7 +62,7 @@
       <Project>{735566c7-b4d5-4633-a89f-86c43ac38e0f}</Project>
       <Name>UI.AutomationTests.UnitTests.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UI.AutomationTests\UI.AutomationTests.WPF.csproj">
+    <ProjectReference Include="..\UI.AutomationTests.WPF\UI.AutomationTests.WPF.csproj">
       <Project>{4DFEB74F-A570-499D-9EC8-B38792E36433}</Project>
       <Name>UI.AutomationTests.WPF</Name>
     </ProjectReference>
