@@ -8,8 +8,11 @@ namespace UI.AutomationTests.UnitTests
     [TestClass]
     public class XamarinFormsWindowTest
     {
-        string dialogFormat = "New Cross Platform App - {0}";
-        string newAppName = "App1";
+        static readonly string dialogFormat = "New Cross Platform App - {0}";
+        static readonly string newInstanceNameFormat = "{0} - Microsoft Visual Studio ";
+        static readonly string StartPageInstanceName = "Start Page - Microsoft Visual Studio ";
+        static readonly string newAppName = "App1";
+
         [TestMethod]
         public void New_Cross_Platform_App_Dialog_Configure()
         {
@@ -18,8 +21,7 @@ namespace UI.AutomationTests.UnitTests
 
             #region Get VS Window
             
-            var VSName = "Start Page - Microsoft Visual Studio ";
-            AutomationElement vsInstanse = rootElement.GetControlElement(VSName, property: AutomationElement.NameProperty, treeScope: TreeScope.Children);
+            AutomationElement vsInstanse = rootElement.GetControlElement(StartPageInstanceName, property: AutomationElement.NameProperty, treeScope: TreeScope.Children);
             Assert.IsNotNull(vsInstanse);
 
             #endregion
@@ -69,13 +71,13 @@ namespace UI.AutomationTests.UnitTests
 
             #endregion
 
-          
+
             #region New Universal Windows Project
 
             #region Get VS Window
 
-            VSName = "App1 - Microsoft Visual Studio ";
-            vsInstanse = rootElement.GetControlElement(VSName, property: AutomationElement.NameProperty, treeScope: TreeScope.Children);
+            var VSInstanceTitle= string.Format(newInstanceNameFormat, newAppName);
+            vsInstanse = rootElement.GetControlElement(VSInstanceTitle, property: AutomationElement.NameProperty, treeScope: TreeScope.Children);
             Assert.IsNotNull(vsInstanse);
 
             #endregion
