@@ -3,6 +3,8 @@ using System.Windows.Input;
 
 namespace UI.AutomationTests.ViewModels
 {
+    //source: https://www.codeproject.com/Tips/813345/Basic-MVVM-and-ICommand-Usage-Example
+
     public class RelayCommand : ICommand
     {
         private Action<object> execute;

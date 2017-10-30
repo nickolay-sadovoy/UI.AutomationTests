@@ -13,9 +13,7 @@ namespace UI.AutomationTests.UnitTests
             AutomationElement rootElement = AutomationElement.RootElement;
             Assert.IsNotNull(rootElement);
 
-            Condition condition = new PropertyCondition(AutomationElement.NameProperty, Properties.Resources.MainWindow_MainWindow_Id);
-
-            AutomationElement appElement = rootElement.FindFirst(TreeScope.Children, condition);
+            AutomationElement appElement = rootElement.GetControlElement(Properties.Resources.MainWindow_MainWindow_Id, treeScope:TreeScope.Children);
             Assert.IsNotNull(appElement);
 
             AutomationElement txtElementA = appElement.GetControlElement(Properties.Resources.MainWindow_TextBoxA_Id);
