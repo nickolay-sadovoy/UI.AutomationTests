@@ -22,6 +22,12 @@ namespace UI.AutomationTests.UnitTests.Core
             invokePattern.Invoke();
         }
 
+        public static void SelectAsSelectionItemPattern(this AutomationElement automationElement)
+        {
+            var selectionItemPattern = automationElement.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern;
+            selectionItemPattern.Select();
+        }
+
         public static AutomationElement GetControlElement(this AutomationElement parentElement, object value, AutomationProperty property = null, PropertyConditionFlags flags = PropertyConditionFlags.IgnoreCase, TreeScope treeScope = TreeScope.Descendants)
         {
             if (property == null)

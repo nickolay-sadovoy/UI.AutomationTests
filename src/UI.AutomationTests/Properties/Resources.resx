@@ -123,8 +123,29 @@
   <data name="MainWindow_ButtonClick_Id" xml:space="preserve">
     <value>clickButton</value>
   </data>
+  <data name="MainWindow_ListView_Id" xml:space="preserve">
+    <value>mainListView</value>
+  </data>
   <data name="MainWindow_MainWindow_Id" xml:space="preserve">
     <value>UIAutomationTestWindow</value>
+  </data>
+  <data name="MainWindow_RadioButtonA_Content" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="MainWindow_RadioButtonA_Id" xml:space="preserve">
+    <value>radioButtonA</value>
+  </data>
+  <data name="MainWindow_RadioButtonB_Content" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="MainWindow_RadioButtonB_Id" xml:space="preserve">
+    <value>radioButtonB</value>
+  </data>
+  <data name="MainWindow_RadioButtonC_Content" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="MainWindow_RadioButtonC_Id" xml:space="preserve">
+    <value>radioButtonC</value>
   </data>
   <data name="MainWindow_TextBoxA_Id" xml:space="preserve">
     <value>textBoxA</value>

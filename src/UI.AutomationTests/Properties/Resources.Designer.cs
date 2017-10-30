@@ -79,11 +79,74 @@ namespace UI.AutomationTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to mainListView.
+        /// </summary>
+        public static string MainWindow_ListView_Id {
+            get {
+                return ResourceManager.GetString("MainWindow_ListView_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UIAutomationTestWindow.
         /// </summary>
         public static string MainWindow_MainWindow_Id {
             get {
                 return ResourceManager.GetString("MainWindow_MainWindow_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A.
+        /// </summary>
+        public static string MainWindow_RadioButtonA_Content {
+            get {
+                return ResourceManager.GetString("MainWindow_RadioButtonA_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to radioButtonA.
+        /// </summary>
+        public static string MainWindow_RadioButtonA_Id {
+            get {
+                return ResourceManager.GetString("MainWindow_RadioButtonA_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to B.
+        /// </summary>
+        public static string MainWindow_RadioButtonB_Content {
+            get {
+                return ResourceManager.GetString("MainWindow_RadioButtonB_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to radioButtonB.
+        /// </summary>
+        public static string MainWindow_RadioButtonB_Id {
+            get {
+                return ResourceManager.GetString("MainWindow_RadioButtonB_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C.
+        /// </summary>
+        public static string MainWindow_RadioButtonC_Content {
+            get {
+                return ResourceManager.GetString("MainWindow_RadioButtonC_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to radioButtonC.
+        /// </summary>
+        public static string MainWindow_RadioButtonC_Id {
+            get {
+                return ResourceManager.GetString("MainWindow_RadioButtonC_Id", resourceCulture);
             }
         }
         

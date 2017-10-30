@@ -43,7 +43,10 @@
         </Grid.ColumnDefinitions>
         
         <ListView Grid.Row="0"
-                  Grid.Column="0"/>
+                  Grid.Column="0"
+                  SelectionMode="Single"
+                  AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ListView_Id}"
+                  ItemsSource="{Binding TestCollection}"/>
 
         <StackPanel Grid.Row="0"
                     Grid.Column="1">
@@ -54,9 +57,9 @@
 
         <StackPanel Grid.Row="1"
                     Grid.Column="0">
-            <RadioButton GroupName="RadioButtonsGroup"/>
-            <RadioButton GroupName="RadioButtonsGroup"/>
-            <RadioButton GroupName="RadioButtonsGroup"/>
+            <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonA_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonA_Content}"/>
+            <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonB_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonB_Content}"/>
+            <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonC_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonC_Content}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1"

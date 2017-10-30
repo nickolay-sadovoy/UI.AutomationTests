@@ -1,6 +1,5 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace UI.AutomationTests.ViewModels
@@ -14,7 +13,10 @@ namespace UI.AutomationTests.ViewModels
         public MainViewModel()
         {
             CalculateCommand = new RelayCommand((a) => Calculate());
+            TestCollection = new ReadOnlyObservableCollection<string>(new ObservableCollection<string>{ "item1", "item2", "item3" });
         }
+
+        public ReadOnlyObservableCollection<string> TestCollection { get; }
 
         public string TextA
         {
