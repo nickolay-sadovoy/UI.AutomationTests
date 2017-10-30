@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.AutomationTests.WPF", "U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.AutomationTests.UnitTests", "UI.AutomationTests.UnitTests\UI.AutomationTests.UnitTests.csproj", "{2E7BCEE0-D848-489F-89B6-18E7830BB812}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.AutomationTests.UnitTests.Core", "UI.AutomationTests.UnitTests.Core\UI.AutomationTests.UnitTests.Core.csproj", "{735566C7-B4D5-4633-A89F-86C43AC38E0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2E7BCEE0-D848-489F-89B6-18E7830BB812}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E7BCEE0-D848-489F-89B6-18E7830BB812}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E7BCEE0-D848-489F-89B6-18E7830BB812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735566C7-B4D5-4633-A89F-86C43AC38E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735566C7-B4D5-4633-A89F-86C43AC38E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735566C7-B4D5-4633-A89F-86C43AC38E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735566C7-B4D5-4633-A89F-86C43AC38E0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
