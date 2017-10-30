@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Windows.Automation;
-using System.Diagnostics;
+using UI.AutomationTests.UnitTests.Core;
 
 namespace UI.AutomationTests.UnitTests
 {
@@ -11,99 +10,34 @@ namespace UI.AutomationTests.UnitTests
         [TestMethod]
         public void MainWindow_TextBoxes_Check_Changing_Text()
         {
-            LogMessage("Getting RootElement...");
             AutomationElement rootElement = AutomationElement.RootElement;
-            if (rootElement != null)
-            {
-                LogMessage("OK." + Environment.NewLine);
+            Assert.IsNotNull(rootElement);
 
-                Condition condition = new PropertyCondition(AutomationElement.NameProperty, "UI Automation Test Window");
+            Condition condition = new PropertyCondition(AutomationElement.NameProperty, "UI Automation Test Window");
 
-                LogMessage("Searching for Test Window...");
-                AutomationElement appElement = rootElement.FindFirst(TreeScope.Children, condition);
+            AutomationElement appElement = rootElement.FindFirst(TreeScope.Children, condition);
+            Assert.IsNotNull(appElement);
 
-                if (appElement != null)
-                {
-                    LogMessage("OK " + Environment.NewLine);
-                    LogMessage("Searching for TextBox A control...");
-                    AutomationElement txtElementA = GetControlElement(appElement, "txtA");
-                    if (txtElementA != null)
-                    {
-                        LogMessage("OK " + Environment.NewLine);
-                        LogMessage("Setting TextBox A value...");
-                        try
-                        {
-                            ValuePattern valuePatternA = txtElementA.GetCurrentPattern(ValuePattern.Pattern) as ValuePattern;
-                            valuePatternA.SetValue("10");
-                            LogMessage("OK " + Environment.NewLine);
-                        }
-                        catch
-                        {
-                            WriteLogError();
-                        }
-                    }
-                    else
-                    {
-                        WriteLogError();
-                    }
+            AutomationElement txtElementA = appElement.GetControlElement("txtA");
+            Assert.IsNotNull(txtElementA);
+            txtElementA.SetValueAsValuePattern("10");
 
-                    LogMessage("Searching for TextBox B control...");
-                    AutomationElement txtElementB = GetControlElement(appElement, "txtB");
-                    if (txtElementB != null)
-                    {
-                        LogMessage("OK " + Environment.NewLine);
-                        LogMessage("Setting TextBox B value...");
-                        try
-                        {
-                            ValuePattern valuePatternB = txtElementB.GetCurrentPattern(ValuePattern.Pattern) as ValuePattern;
-                            valuePatternB.SetValue("5");
-                            LogMessage("OK " + Environment.NewLine);
-                        }
-                        catch
-                        {
-                            WriteLogError();
-                        }
-                    }
-                    else
-                    {
-                        WriteLogError();
-                    }
+            AutomationElement txtElementB = appElement.GetControlElement("txtB");
+            Assert.IsNotNull(txtElementB);
+            txtElementB.SetValueAsValuePattern("5");
 
-                    LogMessage("Searching for Button Click control...");
-                    AutomationElement btnElementClick = GetControlElement(appElement, "btnClick");
-                    if (btnElementClick != null)
-                    {
-                        //TODO: Click button
-                    }
-                    else
-                    {
-                        WriteLogError();
-                    }
+            AutomationElement btnElementClick = appElement.GetControlElement("btnClick");
+            Assert.IsNotNull(btnElementClick);
+            btnElementClick.InvokeAsInvokePattern();
 
-                    //Check TextBox C text == 5
-                }
-                else
-                {
-                    WriteLogError();
-                }
-            }
+            AutomationElement txtElementC = appElement.GetControlElement("txtC");
+            Assert.IsNotNull(txtElementC);
+            var result = txtElementC.GetValueAsValuePattern();
+            Assert.AreEqual("15", result);
         }
 
-        private AutomationElement GetControlElement(AutomationElement parentElement, string value)
-        {
-            Condition condition = new PropertyCondition(AutomationElement.AutomationIdProperty, value);
-            AutomationElement txtElement = parentElement.FindFirst(TreeScope.Descendants, condition);
-            return txtElement;
-        }
+        
 
-        private void LogMessage(string message)
-        {
-            Trace.WriteLine(message);
-        }
-
-        private void WriteLogError()
-        {
-            LogMessage("ERROR." + Environment.NewLine);
-        }
+        
     }
 }
