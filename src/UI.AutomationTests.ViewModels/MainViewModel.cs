@@ -6,14 +6,17 @@ namespace UI.AutomationTests.ViewModels
 {
     public class MainViewModel : ViewModel
     {
-        private string textA { get; set; }
-        private string textB { get; set; }
-        private string textC { get; set; }
+        private string textA;
+        private string textB;
+        private string textC;
+        private string status;
 
         public MainViewModel()
         {
-            CalculateCommand = new RelayCommand((a) => Calculate());
-            TestCollection = new ReadOnlyObservableCollection<string>(new ObservableCollection<string>{ "item1", "item2", "item3" });
+            CalculateCommand = new RelayCommand((param) => CalculateExecute(param));
+            ChangeStatusCommand = new RelayCommand((param) => ChangeStatusExecute(param));
+
+            TestCollection = new ReadOnlyObservableCollection<string>(new ObservableCollection<string> { "item1", "item2", "item3" });
         }
 
         public ReadOnlyObservableCollection<string> TestCollection { get; }
@@ -63,14 +66,36 @@ namespace UI.AutomationTests.ViewModels
                 }
             }
         }
+        public string Status
+        {
+            get
+            {
+                return this.status;
+            }
+            set
+            {
+                if (value != this.status)
+                {
+                    this.status = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         public ICommand CalculateCommand { get; private set; }
 
-        private void Calculate(object param = null)
+        public ICommand ChangeStatusCommand { get; private set; }
+
+        private void CalculateExecute(object param = null)
         {
             var a = string.IsNullOrEmpty(TextA) ? 0 : int.Parse(TextA);
             var b = string.IsNullOrEmpty(TextB) ? 0 : int.Parse(TextB);
             TextC = (a + b).ToString();
+        }
+
+        private void ChangeStatusExecute(object param = null)
+        {
+            this.Status = param?.ToString();
         }
     }
 }

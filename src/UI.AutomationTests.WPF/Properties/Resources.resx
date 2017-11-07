@@ -129,6 +129,18 @@
   <data name="MainWindow_MainWindow_Id" xml:space="preserve">
     <value>UIAutomationTestWindow</value>
   </data>
+  <data name="MainWindow_Menu_Android_Header" xml:space="preserve">
+    <value>Android</value>
+  </data>
+  <data name="MainWindow_Menu_Emulator_Header" xml:space="preserve">
+    <value>Emulator</value>
+  </data>
+  <data name="MainWindow_Menu_File_Header" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="MainWindow_Menu_Tools_Header" xml:space="preserve">
+    <value>Tools</value>
+  </data>
   <data name="MainWindow_RadioButtonA_Content" xml:space="preserve">
     <value>A</value>
   </data>
@@ -146,6 +158,9 @@
   </data>
   <data name="MainWindow_RadioButtonC_Id" xml:space="preserve">
     <value>radioButtonC</value>
+  </data>
+  <data name="MainWindow_Status_Id" xml:space="preserve">
+    <value>MainWindowStatus</value>
   </data>
   <data name="MainWindow_TextBoxA_Id" xml:space="preserve">
     <value>textBoxA</value>

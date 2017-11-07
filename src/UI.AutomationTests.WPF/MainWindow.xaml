@@ -6,9 +6,9 @@
         xmlns:Properties="clr-namespace:UI.AutomationTests.Properties"
         xmlns:viewmodels="clr-namespace:UI.AutomationTests.ViewModels;assembly=UI.AutomationTests.ViewModels"
         mc:Ignorable="d"
-        ResizeMode="CanResize"
+        ResizeMode="NoResize"
         AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_MainWindow_Id}"
-        Title="UI Automation Test Window" Height="350" Width="525">
+        Title="UI Automation Test Window" Height="480" Width="640">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="24,24,24,0"/>
@@ -31,43 +31,94 @@
     <Window.DataContext>
         <viewmodels:MainViewModel/>
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <ListView Grid.Row="0"
+        <Menu>
+            <MenuItem Header="{x:Static Properties:Resources.MainWindow_Menu_File_Header}">
+                <MenuItem Header="item1" />
+                <MenuItem Header="item2" />
+                <MenuItem Header="item3" />
+                <MenuItem Header="item4" />
+            </MenuItem>
+            <MenuItem Header="{x:Static Properties:Resources.MainWindow_Menu_Tools_Header}">
+                <MenuItem Header="item1" />
+                <MenuItem Header="item2" />
+                <MenuItem Header="{x:Static Properties:Resources.MainWindow_Menu_Android_Header}" >
+                    <MenuItem Header="{x:Static Properties:Resources.MainWindow_Menu_Emulator_Header}" Command="{Binding ChangeStatusCommand}" CommandParameter="{x:Static Properties:Resources.MainWindow_Menu_Emulator_Header}" />
+                    <MenuItem Header="item2" />
+                    <MenuItem Header="item3" />
+                    <MenuItem Header="item4" />
+                    <MenuItem Header="item5" />
+                </MenuItem>
+                <MenuItem Header="iOS"  >
+                    <MenuItem Header="item1" />
+                    <MenuItem Header="item2" />
+                    <MenuItem Header="item3" />
+                </MenuItem>
+                <MenuItem Header="Archive Manager..." />
+                <MenuItem Header="Xamarin Account..." />
+                <MenuItem Header="item3" />
+                <MenuItem Header="item4" />
+            </MenuItem>
+            <MenuItem Header="item1" />
+            <MenuItem Header="item2" />
+            <MenuItem Header="item3" />
+            <MenuItem Header="item4" />
+        </Menu>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ListView Grid.Row="0"
                   Grid.Column="0"
                   SelectionMode="Single"
                   AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ListView_Id}"
                   ItemsSource="{Binding TestCollection}"/>
 
-        <StackPanel Grid.Row="0"
+            <StackPanel Grid.Row="0"
                     Grid.Column="1">
-            <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxA_Id}" Text="{Binding TextA, Mode=TwoWay}"/>
-            <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxB_Id}" Text="{Binding TextB, Mode=TwoWay}"/>
-            <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxC_Id}" Text="{Binding TextC, Mode=TwoWay}"/>
-        </StackPanel>
+                <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxA_Id}" Text="{Binding TextA, Mode=TwoWay}"/>
+                <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxB_Id}" Text="{Binding TextB, Mode=TwoWay}"/>
+                <TextBox AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_TextBoxC_Id}" Text="{Binding TextC, Mode=TwoWay}"/>
+            </StackPanel>
 
-        <StackPanel Grid.Row="1"
+            <StackPanel Grid.Row="1"
                     Grid.Column="0">
-            <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonA_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonA_Content}"/>
-            <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonB_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonB_Content}"/>
-            <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonC_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonC_Content}"/>
-        </StackPanel>
+                <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonA_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonA_Content}"/>
+                <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonB_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonB_Content}"/>
+                <RadioButton GroupName="RadioButtonsGroup" AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_RadioButtonC_Id}" Content="{x:Static Properties:Resources.MainWindow_RadioButtonC_Content}"/>
+            </StackPanel>
 
-        <StackPanel Grid.Row="1"
+            <StackPanel Grid.Row="1"
                     Grid.Column="1">
-            <Button AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ButtonClick_Id}"
+                <Button AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ButtonClick_Id}"
                     Content="Click" Command="{Binding CalculateCommand}"/>
-            <Button AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ButtonCancel_Id}"
+                <Button AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ButtonCancel_Id}"
                     Content="Cancel"/>
-        </StackPanel>
+            </StackPanel>
+
+            <TextBox Grid.Row="2"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     HorizontalAlignment="Stretch"
+                     Margin="0"
+                     IsReadOnly="True"
+                     AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_Status_Id}"
+                     Text="{Binding Status}" />
+        </Grid>
     </Grid>
+    
+   
 </Window>

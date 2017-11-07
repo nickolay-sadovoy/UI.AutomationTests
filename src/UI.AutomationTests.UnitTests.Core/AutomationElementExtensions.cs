@@ -22,6 +22,23 @@ namespace UI.AutomationTests.UnitTests.Core
             invokePattern.Invoke();
         }
 
+        public static void ChangeStateExpandCollapsePattern(this AutomationElement automationElement)
+        {
+            var invokePattern = automationElement.GetCurrentPattern(ExpandCollapsePattern.Pattern) as ExpandCollapsePattern;
+            
+            switch (invokePattern.Current.ExpandCollapseState)
+            {
+                case ExpandCollapseState.LeafNode:
+                case ExpandCollapseState.Collapsed:
+                    invokePattern.Expand();
+                    break;
+                case ExpandCollapseState.PartiallyExpanded:
+                case ExpandCollapseState.Expanded:
+                    invokePattern.Collapse();
+                    break;
+            }
+        }
+
         public static void SelectAsSelectionItemPattern(this AutomationElement automationElement)
         {
             var selectionItemPattern = automationElement.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern;

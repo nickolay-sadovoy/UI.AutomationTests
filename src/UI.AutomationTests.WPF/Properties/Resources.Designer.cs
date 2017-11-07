@@ -97,6 +97,42 @@ namespace UI.AutomationTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Android.
+        /// </summary>
+        public static string MainWindow_Menu_Android_Header {
+            get {
+                return ResourceManager.GetString("MainWindow_Menu_Android_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Emulator.
+        /// </summary>
+        public static string MainWindow_Menu_Emulator_Header {
+            get {
+                return ResourceManager.GetString("MainWindow_Menu_Emulator_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File.
+        /// </summary>
+        public static string MainWindow_Menu_File_Header {
+            get {
+                return ResourceManager.GetString("MainWindow_Menu_File_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tools.
+        /// </summary>
+        public static string MainWindow_Menu_Tools_Header {
+            get {
+                return ResourceManager.GetString("MainWindow_Menu_Tools_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A.
         /// </summary>
         public static string MainWindow_RadioButtonA_Content {
@@ -147,6 +183,15 @@ namespace UI.AutomationTests.Properties {
         public static string MainWindow_RadioButtonC_Id {
             get {
                 return ResourceManager.GetString("MainWindow_RadioButtonC_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MainWindowStatus.
+        /// </summary>
+        public static string MainWindow_Status_Id {
+            get {
+                return ResourceManager.GetString("MainWindow_Status_Id", resourceCulture);
             }
         }
         

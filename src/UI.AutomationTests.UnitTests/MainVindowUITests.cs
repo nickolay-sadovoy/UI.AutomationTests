@@ -72,6 +72,49 @@ namespace UI.AutomationTests.UnitTests
             listItem.SelectAsSelectionItemPattern();
         }
 
+        [TestMethod]
+        public void MainWindow_Menu_Check_Executing()
+        {
+            AutomationElement rootElement = AutomationElement.RootElement;
+            Assert.IsNotNull(rootElement);
+
+            AutomationElement appElements = rootElement.GetControlElement(Properties.Resources.MainWindow_MainWindow_Id, treeScope: TreeScope.Children);
+            Assert.IsNotNull(appElements);
+
+            var menus = appElements.GetControlElement("Menu", AutomationElement.ClassNameProperty, treeScope: TreeScope.Children);
+            Assert.IsNotNull(menus);
+
+            var tools = menus.GetControlElement(Properties.Resources.MainWindow_Menu_Tools_Header, AutomationElement.NameProperty, treeScope: TreeScope.Children);
+            Assert.IsNotNull(tools);
+            tools.ChangeStateExpandCollapsePattern();
+
+            var android = tools.GetControlElement(Properties.Resources.MainWindow_Menu_Android_Header, AutomationElement.NameProperty, treeScope: TreeScope.Children);
+            Assert.IsNotNull(android);
+            android.ChangeStateExpandCollapsePattern();
+
+            var emulator = android.GetControlElement(Properties.Resources.MainWindow_Menu_Emulator_Header, AutomationElement.NameProperty, treeScope: TreeScope.Children);
+            Assert.IsNotNull(emulator);
+            emulator.InvokeAsInvokePattern();
+
+            Assert.IsTrue(MainWindow_Menu_Check_Status(Properties.Resources.MainWindow_Menu_Emulator_Header));
+        }
+
+        private bool MainWindow_Menu_Check_Status(string expectedText)
+        {
+            AutomationElement rootElement = AutomationElement.RootElement;
+            Assert.IsNotNull(rootElement);
+
+            AutomationElement appElements = rootElement.GetControlElement(Properties.Resources.MainWindow_MainWindow_Id, treeScope: TreeScope.Children);
+            Assert.IsNotNull(appElements);
+
+            var statusTextBlock = appElements.GetControlElement(Properties.Resources.MainWindow_Status_Id, treeScope: TreeScope.Children);
+            Assert.IsNotNull(statusTextBlock);
+
+            var actualText = statusTextBlock.GetValueAsValuePattern();
+            Assert.IsNotNull(actualText);
+
+            return actualText.Equals(expectedText);
+        }
 
         /// <summary>
         /// Retrieves an element in a list, using TreeWalker.

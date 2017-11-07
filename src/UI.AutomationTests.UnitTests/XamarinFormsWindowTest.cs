@@ -122,5 +122,19 @@ namespace UI.AutomationTests.UnitTests
             var delayTask = Task.Delay(delay);
             Task.WaitAll(delayTask);
         }
+
+        [TestMethod]
+        public void CheckAndroidDesigner()
+        {
+            AutomationElement rootElement = AutomationElement.RootElement;
+            Assert.IsNotNull(rootElement);
+
+            AutomationElement vsInstanse = rootElement.GetControlElement("App4 - Microsoft Visual Studio ", property: AutomationElement.NameProperty, treeScope: TreeScope.Children);
+            Assert.IsNotNull(vsInstanse);
+
+            AutomationElement wpfExceptionBox = vsInstanse.GetControlElement("WpfExceptionBox", property: AutomationElement.ClassNameProperty, treeScope: TreeScope.Descendants);
+            Assert.IsNull(wpfExceptionBox);
+        }
+
     }
 }
