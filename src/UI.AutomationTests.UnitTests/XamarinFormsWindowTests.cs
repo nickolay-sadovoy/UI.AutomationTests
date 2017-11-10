@@ -6,7 +6,7 @@ using UI.AutomationTests.UnitTests.Core;
 namespace UI.AutomationTests.UnitTests
 {
     [TestClass]
-    public class XamarinFormsWindowTest
+    public class XamarinFormsWindowTests
     {
         static readonly string dialogFormat = "New Cross Platform App - {0}";
         static readonly string newInstanceNameFormat = "{0} - Microsoft Visual Studio ";
@@ -135,6 +135,14 @@ namespace UI.AutomationTests.UnitTests
             AutomationElement wpfExceptionBox = vsInstanse.GetControlElement("WpfExceptionBox", property: AutomationElement.ClassNameProperty, treeScope: TreeScope.Descendants);
             Assert.IsNull(wpfExceptionBox);
         }
+        [TestMethod]
+        public void CheckAndroidAVDManager()
+        {
+            AutomationElement rootElement = AutomationElement.RootElement;
+            Assert.IsNotNull(rootElement);
 
+            AutomationElement androidAVDManager = rootElement.GetControlElement("Android Virtual Device (AVD) Manager", property: AutomationElement.NameProperty, treeScope: TreeScope.Children);
+            Assert.IsNotNull(androidAVDManager);
+        }
     }
 }
