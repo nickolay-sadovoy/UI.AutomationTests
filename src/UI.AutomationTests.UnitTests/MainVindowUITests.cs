@@ -8,6 +8,10 @@ namespace UI.AutomationTests.UnitTests
     [TestClass]
     public class MainVindowUITests
     {
+        static MainVindowUITests()
+        {
+        }
+
         [TestMethod]
         public void MainWindow_TextBoxes_Check_Changing_Text()
         {
