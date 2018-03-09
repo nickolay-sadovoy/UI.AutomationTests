@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Threading;
 using System.Windows.Automation;
 using UI.AutomationTests.UnitTests.Core;
 
@@ -101,6 +102,25 @@ namespace UI.AutomationTests.UnitTests
             emulator.InvokeAsInvokePattern();
 
             Assert.IsTrue(MainWindow_Menu_Check_Status(Properties.Resources.MainWindow_Menu_Emulator_Header));
+        }
+
+        [TestMethod]
+        public void StressTestAdd100Elements()
+        {
+            var n = 100;
+            AutomationElement rootElement = AutomationElement.RootElement;
+            Assert.IsNotNull(rootElement);
+
+            AutomationElement appElement = rootElement.GetControlElement(Properties.Resources.MainWindow_MainWindow_Id, treeScope: TreeScope.Children);
+            Assert.IsNotNull(appElement);
+
+            AutomationElement btnAddItemToCollectionClick = appElement.GetControlElement(Properties.Resources.MainWindow_ButtonAddItemToCollection_Id);
+            Assert.IsNotNull(btnAddItemToCollectionClick);
+            for (var i = 0; i < n; i++)
+            {
+                btnAddItemToCollectionClick.InvokeAsInvokePattern();
+            }
+
         }
 
         private bool MainWindow_Menu_Check_Status(string expectedText)

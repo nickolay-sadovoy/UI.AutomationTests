@@ -15,11 +15,12 @@ namespace UI.AutomationTests.ViewModels
         {
             CalculateCommand = new RelayCommand((param) => CalculateExecute(param));
             ChangeStatusCommand = new RelayCommand((param) => ChangeStatusExecute(param));
+            AddItemToCollectionCommand = new RelayCommand((param) => AddItemToCollectionExecute(param));
 
-            TestCollection = new ReadOnlyObservableCollection<string>(new ObservableCollection<string> { "item1", "item2", "item3" });
+            TestCollection = new ObservableCollection<string> { "item 1", "item 2", "item 3" };
         }
 
-        public ReadOnlyObservableCollection<string> TestCollection { get; }
+        public ObservableCollection<string> TestCollection { get; }
 
         public string TextA
         {
@@ -86,6 +87,8 @@ namespace UI.AutomationTests.ViewModels
 
         public ICommand ChangeStatusCommand { get; private set; }
 
+        public ICommand AddItemToCollectionCommand { get; private set; }
+
         private void CalculateExecute(object param = null)
         {
             var a = string.IsNullOrEmpty(TextA) ? 0 : int.Parse(TextA);
@@ -96,6 +99,11 @@ namespace UI.AutomationTests.ViewModels
         private void ChangeStatusExecute(object param = null)
         {
             this.Status = param?.ToString();
+        }
+
+        private void AddItemToCollectionExecute(object param = null)
+        {
+            this.TestCollection.Add("item " + (this.TestCollection.Count + 1));
         }
     }
 }

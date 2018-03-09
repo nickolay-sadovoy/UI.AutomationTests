@@ -61,6 +61,15 @@ namespace UI.AutomationTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AddItemToCollectionButtonId.
+        /// </summary>
+        public static string MainWindow_ButtonAddItemToCollection_Id {
+            get {
+                return ResourceManager.GetString("MainWindow_ButtonAddItemToCollection_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to cancelButtonId.
         /// </summary>
         public static string MainWindow_ButtonCancel_Id {

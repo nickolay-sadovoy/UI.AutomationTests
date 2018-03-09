@@ -107,6 +107,8 @@
                     Content="Click" Command="{Binding CalculateCommand}"/>
                 <Button AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ButtonCancel_Id}"
                     Content="Cancel"/>
+                <Button AutomationProperties.AutomationId="{x:Static Properties:Resources.MainWindow_ButtonAddItemToCollection_Id}"
+                    Content="AddItem" Command="{Binding AddItemToCollectionCommand}"/>
             </StackPanel>
 
             <TextBox Grid.Row="2"
